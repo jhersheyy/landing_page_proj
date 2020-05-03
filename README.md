@@ -1,9 +1,4 @@
 # Landing Page Project
-
-## Table of Contents
-
-* [Instructions](#instructions)
-
 ## The Process
 
 I used the starter code and changed the styling a bit. The original HTML only had 3 sections, so I used javascript to add a 4th before creating the navbar dynamically. I added functionality for scrolling to anchors and event listeners for active states. I then checked the styling and functionality on different sized screens.
