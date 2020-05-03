@@ -4,10 +4,9 @@
 
 * [Instructions](#instructions)
 
-## Instructions
+## The Process
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+I used the starter code and changed the styling a bit. The original HTML only had 3 sections, so I used javascript to add a 4th before creating the navbar dynamically. I added functionality for scrolling to anchors and event listeners for active states. I then checked the styling and functionality on different sized screens.
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+##Challenges
+I mainly struggled with getting the active states to work. I was able to use getBoundingClientRect() pretty easily for large sized screens, but ran into issues with mobile sized screens. My active state wouldn't show up in the middle of a long text, only on the top or bottom, so I had to adjust my boundary in my if statement to solve the problem.
