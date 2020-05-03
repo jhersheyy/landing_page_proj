@@ -87,11 +87,16 @@ section {
     text-decoration: none;
     color: #000;
 }
-
+@media (hover:hover){
 .navbar__menu .menu__link:hover {
     background: rgb(86, 187, 228);
     color: #fff;
     transition: ease 0.3s all;
+}}
+
+.menu__link__active{
+    background: white;
+    
 }
 
 /* Header Styles */

@@ -81,23 +81,22 @@ function fillNavBar(){
 
 
 // Add class 'active' to section when near top of viewport
-
-function activateViewed(){
+function activateViewed(){//testing hovering and menulinks
     //checks all body children to see whats in viewport
-    mainSection = document.querySelector('main');
-    checklist = mainSection.children;
-    for (let i = 0; i <checklist.length; i++){
-        let vpInfo = checklist[i].getBoundingClientRect();
-        if(
-            vpInfo.top >= 0 &&
-            vpInfo.left >= 0 //&& 
-            //note: commented out these two because I want the sections to be active whenever on screen, not just if whole section shows
-            //vpInfo.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-            //vpInfo.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        ){
-            checklist[i].classList.add('your-active-class');
+    mainSection = document.querySelector('main'); //<main> has landing page h1 and all sections
+    checklist = mainSection.children; //get the <header> and <section>s
+    navLinks = document.querySelector('#navbar__list');//get the list w/ data-nav titles to activate in loop //0,1,2,3
+
+    //loop through sections to see if active AND HIGHLIGHT ACTIVE SECTION ON NAVBAR!
+    for (let i = 1; i <checklist.length; i++){//start at 1 to ignore header //1,2,3,4
+        let vpInfo = checklist[i].getBoundingClientRect(); //vpInfo contains: domrect obj w/ props: l/r/top/bottom/x/y/width/height
+        if (vpInfo.top <= 190 && vpInfo.bottom >= 190){
+            checklist[i].classList.add('your-active-class'); //make the section active
+            navLinks.children[i-1].classList.add('menu__link__active');//make the navbar link active;
         } else {
-            checklist[i].classList.remove('your-active-class');
+            checklist[i].classList.remove('your-active-class'); //make sure all sections checked but not in view are not active
+            navLinks.children[i-1].classList.remove('menu__link__active');
+
         }
     }
 }
@@ -105,7 +104,7 @@ function activateViewed(){
 // Scroll to anchor ID using scrollTO event
 
 navBar.addEventListener('click', function scrollToSection(e){
-    let sectionName = e.target.getAttribute('id').slice(5); //get rid of list id prefix
+    let sectionName = e.target.getAttribute('id').slice(5); //get rid of list id prefix (link_xxx)
     console.log(sectionName);
     let secInfo =  document.querySelector('#'+sectionName).getBoundingClientRect();
     console.log(secInfo);
@@ -136,4 +135,4 @@ document.addEventListener('scroll', activateViewed);
     //weird behavior, check params of gBCR and scrollTo, see if can get it to scroll to uppermost, leftmost not mid
     //^FIXED
     //active disabled if middle of section showing/not top (smaller screens/longer passages)
-
+    //addition: make one section active at a time, fix >=/<= boundary i think so no overlap and figure out why middles of 2,3,4 inactive
