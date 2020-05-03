@@ -29,8 +29,8 @@ h1 {
 
 @media only screen and (min-width: 35em){
     h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
+        font-size: 5em;
+        margin: 2em 3rem 1em;
     }
 }
 
@@ -72,7 +72,7 @@ section {
 
 .navbar__menu ul {
     padding-left: 0;
-    margin: 0;
+    margin: 50;
     text-align: right;
 }
 
@@ -87,12 +87,19 @@ section {
     text-decoration: none;
     color: #000;
 }
+@media (min-width: 422px){
+    .navbar__menu .menu__link {
+        display: inline;
+    }
+}
+
 @media (hover:hover){
-.navbar__menu .menu__link:hover {
-    background: rgb(86, 187, 228);
-    color: #fff;
-    transition: ease 0.3s all;
-}}
+    .navbar__menu .menu__link:hover {
+        background: rgb(86, 187, 228);
+        color: #fff;
+        transition: ease 0.3s all;
+    }
+}
 
 .menu__link__active{
     background: white;
