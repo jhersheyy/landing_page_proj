@@ -67,7 +67,6 @@ function getInfo(){
 // build the nav
 function fillNavBar(){
     getInfo();//saves to global variables
-    console.log('navbar: '+navBar);
     for (let i=0; i <titles.length; i++){
         const item = document.createElement('li');
         item.textContent = titles[i];
@@ -86,9 +85,9 @@ function activateViewed(){//testing hovering and menulinks
     mainSection = document.querySelector('main'); //<main> has landing page h1 and all sections
     checklist = mainSection.children; //get the <header> and <section>s
     navLinks = document.querySelector('#navbar__list');//get the list w/ data-nav titles to activate in loop //0,1,2,3
-
+    len = checklist.length;
     //loop through sections to see if active AND HIGHLIGHT ACTIVE SECTION ON NAVBAR!
-    for (let i = 1; i <checklist.length; i++){//start at 1 to ignore header //1,2,3,4
+    for (let i = 1; i <len; i++){//start at 1 to ignore header //1,2,3,4
         let vpInfo = checklist[i].getBoundingClientRect(); //vpInfo contains: domrect obj w/ props: l/r/top/bottom/x/y/width/height
         if (vpInfo.top <= 190 && vpInfo.bottom >= 190){
             checklist[i].classList.add('your-active-class'); //make the section active
